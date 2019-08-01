@@ -6,7 +6,7 @@ char winner();
 void play(int);
 void printBoard();
 
-int board[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+char board[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 /*
  * 1 2 3
  * 4 5 6
@@ -19,7 +19,7 @@ int main() {
         cout << "1 - O\n2 - X" << endl << endl;
         cin >> symbol;
         short choice = 0;
-        while (!winner()){
+        while (!winner()) {
                 cout << "What's the position you want to play at?" << endl;
                 cout << "Please say the correspondent number!" << endl;
                 printBoard();
@@ -28,58 +28,62 @@ int main() {
         }
         return 0;
 }
-char winner(){
-        //X WINS 
+char winner() {
+        // X WINS
 
         // Row win for X
-        if(board[0][0] == 'X' && board[0][1] == 'X' && board[0][2]=='X')
+        if (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X')
                 return 'X';
-        if(board[1][0] == 'X' && board[1][1] == 'X' && board[1][2]=='X')
+        if (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X')
                 return 'X';
-        if(board[2][0] == 'X' && board[2][1] == 'X' && board[2][2]=='X')
-                return 'X';
-
-        //Column win for X
-        if(board[0][0] == 'X' && board[1][0] == 'X' && board[2][0]=='X')
-                return 'X';
-        if(board[0][1] == 'X' && board[1][1] == 'X' && board[2][1]=='X')
-                return 'X';
-        if(board[0][2] == 'X' && board[1][2] == 'X' && board[2][2]=='X')
+        if (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X')
                 return 'X';
 
-        //Diagonal win for X
-        if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
+        // Column win for X
+        if (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X')
+                return 'X';
+        if (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X')
+                return 'X';
+        if (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X')
                 return 'X';
 
-        //O WINS 
+        // Diagonal win for X
+        if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
+                return 'X';
+
+        // O WINS
 
         // Row win for O
-        if(board[0][0] == 'O' && board[0][1] == 'O' && board[0][2]=='O')
+        if (board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O')
                 return 'O';
-        if(board[1][0] == 'O' && board[1][1] == 'O' && board[1][2]=='O')
+        if (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O')
                 return 'O';
-        if(board[2][0] == 'O' && board[2][1] == 'O' && board[2][2]=='O')
-                return 'O';
-
-        //Column win for O
-        if(board[0][0] == 'O' && board[1][0] == 'O' && board[2][0]=='O')
-                return 'O';
-        if(board[0][1] == 'O' && board[1][1] == 'O' && board[2][1]=='O')
-                return 'O';
-        if(board[0][2] == 'O' && board[1][2] == 'O' && board[2][2]=='O')
+        if (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O')
                 return 'O';
 
-        //Diagonal win for O
-        if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
+        // Column win for O
+        if (board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O')
                 return 'O';
-        
-        //no winner
+        if (board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] == 'O')
+                return 'O';
+        if (board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O')
+                return 'O';
+
+        // Diagonal win for O
+        if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
+                return 'O';
+
+        // no winner
         return 0;
 }
-void printBoard(){
-        for (int i = 0; i<3;i++){
-                for (int j=0;j<3;j++)
-                        cout << board[i][j] << " ";
+void printBoard() {
+        for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                        if (board[i][j] != 'O' or board[i][j] != 'X')
+                                cout << board[i][j] << " ";
+
+                        cout << (int)board[i][j] << " ";
+                }
                 cout << endl;
         }
 }
