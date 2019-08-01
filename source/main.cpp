@@ -2,9 +2,7 @@
 
 using namespace std;
 
-bool winnerDiag(int[][3]);
-bool winnerCol(int[][3]);
-bool winnerRow(int[][3]);
+char winner();
 void play(int);
 void printBoard();
 
@@ -18,32 +16,72 @@ char symbol = 0;
 
 int main() {
         cout << "Would you like to use O or X?" << endl;
+        cout << "1 - O\n2 - X" << endl << endl;
         cin >> symbol;
-
+        short choice = 0;
+        while (!winner()){
+                cout << "What's the position you want to play at?" << endl;
+                cout << "Please say the correspondent number!" << endl;
+                printBoard();
+                cin >> choice;
+                play(choice);
+        }
         return 0;
 }
-bool winnerDiag(int board[][3]) {
-        for (int i = 0; i < 2; i++) {
-                // The elements of the row are not all equal
-                if (board[i][i] != board[i + 1][i + 1]) return false;
+char winner(){
+        //X WINS 
+
+        // Row win for X
+        if(board[0][0] == 'X' && board[0][1] == 'X' && board[0][2]=='X')
+                return 'X';
+        if(board[1][0] == 'X' && board[1][1] == 'X' && board[1][2]=='X')
+                return 'X';
+        if(board[2][0] == 'X' && board[2][1] == 'X' && board[2][2]=='X')
+                return 'X';
+
+        //Column win for X
+        if(board[0][0] == 'X' && board[1][0] == 'X' && board[2][0]=='X')
+                return 'X';
+        if(board[0][1] == 'X' && board[1][1] == 'X' && board[2][1]=='X')
+                return 'X';
+        if(board[0][2] == 'X' && board[1][2] == 'X' && board[2][2]=='X')
+                return 'X';
+
+        //Diagonal win for X
+        if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
+                return 'X';
+
+        //O WINS 
+
+        // Row win for O
+        if(board[0][0] == 'O' && board[0][1] == 'O' && board[0][2]=='O')
+                return 'O';
+        if(board[1][0] == 'O' && board[1][1] == 'O' && board[1][2]=='O')
+                return 'O';
+        if(board[2][0] == 'O' && board[2][1] == 'O' && board[2][2]=='O')
+                return 'O';
+
+        //Column win for O
+        if(board[0][0] == 'O' && board[1][0] == 'O' && board[2][0]=='O')
+                return 'O';
+        if(board[0][1] == 'O' && board[1][1] == 'O' && board[2][1]=='O')
+                return 'O';
+        if(board[0][2] == 'O' && board[1][2] == 'O' && board[2][2]=='O')
+                return 'O';
+
+        //Diagonal win for O
+        if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
+                return 'O';
+        
+        //no winner
+        return 0;
+}
+void printBoard(){
+        for (int i = 0; i<3;i++){
+                for (int j=0;j<3;j++)
+                        cout << board[i][j] << " ";
+                cout << endl;
         }
-        return true;
-}
-bool winnerCol(int board[][3]) {
-        if ((board[0][0] != board[1][0] && board[1][0] != board[2][0]) &&
-            (board[0][1] != board[1][1] && board[1][1] != board[2][1]) &&
-            (board[0][2] != board[1][2] && board[1][2] != board[2][2]))
-                // No columns with all equal symbols
-                return false;
-        return true;
-}
-bool winnerRow(int board[][3]) {
-        if ((board[0][0] != board[0][1] && board[0][1] != board[0][2]) &&
-            (board[1][0] != board[1][1] && board[1][1] != board[1][2]) &&
-            (board[2][0] != board[2][1] && board[2][1] != board[2][2]))
-                // There are no rows with all equal symbols
-                return false;
-        return true;
 }
 void play(int pos) {
         for (int i = 0; i < 3; i++)
