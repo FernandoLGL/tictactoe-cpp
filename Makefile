@@ -123,6 +123,60 @@ tictactoe/fast:
 	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/build
 .PHONY : tictactoe/fast
 
+source/board.o: source/board.cpp.o
+
+.PHONY : source/board.o
+
+# target to build an object file
+source/board.cpp.o:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/source/board.cpp.o
+.PHONY : source/board.cpp.o
+
+source/board.i: source/board.cpp.i
+
+.PHONY : source/board.i
+
+# target to preprocess a source file
+source/board.cpp.i:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/source/board.cpp.i
+.PHONY : source/board.cpp.i
+
+source/board.s: source/board.cpp.s
+
+.PHONY : source/board.s
+
+# target to generate assembly for a file
+source/board.cpp.s:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/source/board.cpp.s
+.PHONY : source/board.cpp.s
+
+source/game.o: source/game.cpp.o
+
+.PHONY : source/game.o
+
+# target to build an object file
+source/game.cpp.o:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/source/game.cpp.o
+.PHONY : source/game.cpp.o
+
+source/game.i: source/game.cpp.i
+
+.PHONY : source/game.i
+
+# target to preprocess a source file
+source/game.cpp.i:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/source/game.cpp.i
+.PHONY : source/game.cpp.i
+
+source/game.s: source/game.cpp.s
+
+.PHONY : source/game.s
+
+# target to generate assembly for a file
+source/game.cpp.s:
+	$(MAKE) -f CMakeFiles/tictactoe.dir/build.make CMakeFiles/tictactoe.dir/source/game.cpp.s
+.PHONY : source/game.cpp.s
+
 source/main.o: source/main.cpp.o
 
 .PHONY : source/main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... tictactoe"
 	@echo "... edit_cache"
+	@echo "... source/board.o"
+	@echo "... source/board.i"
+	@echo "... source/board.s"
+	@echo "... source/game.o"
+	@echo "... source/game.i"
+	@echo "... source/game.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

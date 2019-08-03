@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/fernando/github/tictactoe-cpp/source/main.cpp
+/home/fernando/github/tictactoe-cpp/source/board.cpp
 iostream
 -
-limits
+
+/home/fernando/github/tictactoe-cpp/source/board.h
+
+/home/fernando/github/tictactoe-cpp/source/game.cpp
+iostream
 -
+board.h
+/home/fernando/github/tictactoe-cpp/source/board.h
 

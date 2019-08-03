@@ -8,4 +8,6 @@ project(tictactoe-cpp)
 add_executable(
         tictactoe
         source/main.cpp
+        source/game.cpp
+        source/board.cpp
 )

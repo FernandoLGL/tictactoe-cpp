@@ -6,45 +6,13 @@
 // Organize the files a bit better (header files)
 #include <iostream>
 #include <limits>
+#include "game.h"
+#include "board.h"
 
 // This is a project I'm doing to study what I've learned by now in C++.
 // Therefore it doesn't include OOP as I haven't studied how C++ deals with OOP.
 
 using namespace std;
-
-/**
- * Function that returns the winner if there is one
- * @return 0(False),'X','O'
- */
-char winner();
-/**
- * Play the current symbol at the position passed as an argument
- */
-void play(char);
-/**
- * Print the current board state on the screen
- */
-void printBoard();
-/**
- * Toggle the player. If the current player is 'X', now it's 'O's turn
- */
-void togglePlayer();
-/**
- * Checks if the board has a value in it
- * @return bool
- */
-bool hasVal(char);
-
-char board[][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-// char board[][3] ={'1','2','3','4','5','6','7','8','9'};
-// do some research to see how the above apparently works the same
-/*
- * 1 2 3
- * 4 5 6
- * 7 8 9
- */
-char symbol = 'X';
-// X goes first
 
 int main() {
         system("clear");
@@ -96,97 +64,4 @@ int main() {
         cout << "Player " << winner() << " wins!" << endl;
         // system("pause");
         return 0;
-}
-bool hasVal(char c) {
-        // search the entire array (inefficient but works, this is quite a
-        // simple project). This is O(n^2). Once the element has been found, we
-        // can return true.
-        for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                        if (board[i][j] == c) return true;
-                }
-        }
-        return false;
-}
-void togglePlayer() {
-        // Pretty self explanatory
-        if (symbol == 'X')
-                symbol = 'O';
-        else
-                symbol = 'X';
-}
-char winner() {
-        // X WINS
-
-        // Row win for X
-        if (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X')
-                return 'X';
-        if (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X')
-                return 'X';
-        if (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X')
-                return 'X';
-
-        // Column win for X
-        if (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X')
-                return 'X';
-        if (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X')
-                return 'X';
-        if (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X')
-                return 'X';
-
-        // Diagonal win for X
-        if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
-                return 'X';
-        if (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')
-                return 'X';
-
-        // O WINS
-
-        // Row win for O
-        if (board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O')
-                return 'O';
-        if (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O')
-                return 'O';
-        if (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O')
-                return 'O';
-
-        // Column win for O
-        if (board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O')
-                return 'O';
-        if (board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] == 'O')
-                return 'O';
-        if (board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O')
-                return 'O';
-
-        // Diagonal win for O
-        if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
-                return 'O';
-        if (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')
-                return 'O';
-
-        // no winner
-        return 0;
-}
-void printBoard() {
-        // print the board state
-        for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                        cout << board[i][j] << " ";
-                }
-                cout << endl;
-        }
-}
-void play(char pos) {
-        // search through the entire array for the position (inefficient but
-        // works for this simple exercise) and plays the symbol at that
-        // position.
-        for (short i = 0; i < 3; i++)
-                for (short j = 0; j < 3; j++) {
-                        if (pos == board[i][j]) {
-                                // if the loop found the position requested,
-                                // insert the symbol.
-                                board[i][j] = symbol;
-                                return;
-                        }
-                }
 }

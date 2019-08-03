@@ -1,1 +1,1 @@
-/usr/bin/c++   -std=c++14 -g  -rdynamic CMakeFiles/tictactoe.dir/source/main.cpp.o  -o tictactoe 
+/usr/bin/c++   -std=c++14 -g  -rdynamic CMakeFiles/tictactoe.dir/source/main.cpp.o CMakeFiles/tictactoe.dir/source/game.cpp.o CMakeFiles/tictactoe.dir/source/board.cpp.o  -o tictactoe 

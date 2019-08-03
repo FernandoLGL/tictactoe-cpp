@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tictactoe.dir/source/board.cpp.o"
+  "CMakeFiles/tictactoe.dir/source/game.cpp.o"
   "CMakeFiles/tictactoe.dir/source/main.cpp.o"
   "tictactoe"
   "tictactoe.pdb"
