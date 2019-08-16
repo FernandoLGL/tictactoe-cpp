@@ -1,10 +1,9 @@
 #include <iostream>
 
-using namespace std;
+// Discouraged
+// using namespace std;
 
 char board[][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-// char board[][3] ={'1','2','3','4','5','6','7','8','9'};
-// do some research to see how the above apparently works the same
 /*
  * 1 2 3
  * 4 5 6
@@ -15,8 +14,8 @@ bool hasVal(char c) {
         // search the entire array (inefficient but works, this is quite a
         // simple project). This is O(n^2). Once the element has been found, we
         // can return true.
-        for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
+        for (short i{0}; i < 3; i++) {
+                for (short j{0}; j < 3; j++) {
                         if (board[i][j] == c) return true;
                 }
         }
@@ -24,11 +23,12 @@ bool hasVal(char c) {
 }
 
 void printBoard() {
-        // print the board state
-        for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                        cout << board[i][j] << " ";
+        // We print the board by printing every value in the "board" list while
+        // creating a new line every 3 values.
+        for (short i{0}; i < 3; i++) {
+                for (short j{0}; j < 3; j++) {
+                        std::cout << board[i][j] << ' ';
                 }
-                cout << endl;
+                std::cout << '\n';
         }
 }

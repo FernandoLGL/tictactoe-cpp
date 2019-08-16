@@ -1,10 +1,8 @@
 #include <iostream>
 #include "board.h"
 
-using namespace std;
-
-char symbol = 'X';
-//X goes first
+// Initial value of symbol is 'X' because 'X' is going to always start the game!
+char symbol{'X'};
 
 void togglePlayer() {
         // Pretty self explanatory
@@ -15,11 +13,11 @@ void togglePlayer() {
 }
 
 void play(char pos) {
-        // search through the entire array for the position (inefficient but
-        // works for this simple exercise) and plays the symbol at that
-        // position.
-        for (short i = 0; i < 3; i++)
-                for (short j = 0; j < 3; j++) {
+        // To play a symbol at the position passed as an argument, we search
+        // through the entire array for the position (inefficient but works for
+        // this simple exercise) and play the symbol at that position.
+        for (short i{0}; i < 3; i++)
+                for (short j{0}; j < 3; j++) {
                         if (pos == board[i][j]) {
                                 // if the loop found the position requested,
                                 // insert the symbol.
@@ -78,6 +76,6 @@ char winner() {
         if (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')
                 return 'O';
 
-        // no winner
+        // There is no winner:
         return 0;
 }

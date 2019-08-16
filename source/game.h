@@ -1,6 +1,7 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
+// Represents the current symbol
 extern char symbol;
 
 /**
