@@ -1,11 +1,3 @@
-// TODO
-// Check for draws //DONE
-// Clear screen //DONE
-// Deal with errors //DONE
-// A player can't play at a position which was already played at //DONE
-// Organize the files a bit better (header files) //DONE
-// Make it more C++ than C //DONE
-// Optimize the code (only when I truly master C++)
 #include <iostream>
 #include <limits>
 #include "board.h"
@@ -14,12 +6,27 @@
 // This is a project I'm doing to study what I've learned by now in C++.
 // Therefore it doesn't include OOP as I haven't studied how C++ deals with OOP.
 
+// Please note that this version (v1.3) uses system() and therefore is unsafe
+// and overall bad
+
 // Doing this is not encouraged.
 // using namespace std;
 
+// if the user is using Windows, the "clear" command should be "cls"
+#if defined(WIN32) || defined(_WIN32) || \
+    defined(__WIN32) && !defined(__CYGWIN__)
+
+#define CLEAR_COMMAND "cls"
+
+#else
+
+#define CLEAR_COMMAND "clear"
+
+#endif
+
 int main() {
         // Clearing the screen (Linux/MacOS)
-        system("clear");
+        system(CLEAR_COMMAND);
         char choice{0};
         std::cout << "Player X starts!" << '\n' << '\n';
         // The game just started so there has been 0 plays.
@@ -29,7 +36,7 @@ int main() {
                 // used. This "if" statement will only run when there are no
                 // winners and every board position has been filled (Draw)
                 if (total_plays == 9) {
-                        system("clear");
+                        system(CLEAR_COMMAND);
                         printBoard();
                         std::cout << "Draw!" << '\n';
                         return 0;
@@ -64,11 +71,11 @@ int main() {
                 // After everything has been done, it is now the opponent's
                 // turn. So we change the current player.
                 togglePlayer();
-                system("clear");
+                system(CLEAR_COMMAND);
         }
 
         // at the end show the board and who won.
-        system("clear");
+        system(CLEAR_COMMAND);
         printBoard();
         std::cout << "Player " << winner() << " wins!" << '\n';
         return 0;
