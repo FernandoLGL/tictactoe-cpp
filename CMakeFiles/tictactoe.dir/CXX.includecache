@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/fernando/github/tictactoe-cpp/source/board.cpp
-iostream
--
-
-/home/fernando/github/tictactoe-cpp/source/board.h
-
-/home/fernando/github/tictactoe-cpp/source/game.cpp
-iostream
--
-board.h
 /home/fernando/github/tictactoe-cpp/source/board.h
 
 /home/fernando/github/tictactoe-cpp/source/game.h

@@ -1,25 +1,40 @@
-// TODO
-// Check for draws //DONE
-// Clear screen //DONE
-// Deal with errors //DONE
-// A player can't play at a position which was already played at //DONE
-// Organize the files a bit better (header files) //DONE
-// Make it more C++ than C //DONE
-// Optimize the code (only when I truly master C++)
+// This is a project I'm doing to study what I've learned by now in C++.
+// Therefore it doesn't include OOP as I haven't studied how C++ deals with OOP.
+
 #include <iostream>
 #include <limits>
 #include "board.h"
 #include "game.h"
 
-// This is a project I'm doing to study what I've learned by now in C++.
-// Therefore it doesn't include OOP as I haven't studied how C++ deals with OOP.
+// Not using system() anymore.
+// http://www.cplusplus.com/articles/j3wTURfi/
+/*
+// if the user is using Windows, the "clear" command should be "cls".
+#if defined(WIN32) || defined(_WIN32) || \
+    defined(__WIN32) && !defined(__CYGWIN__)
+
+#define CLEAR_COMMAND "cls"
+
+#else
+
+#define CLEAR_COMMAND "clear"
+
+#endif
+*/
 
 // Doing this is not encouraged.
 // using namespace std;
 
 int main() {
         // Clearing the screen (Linux/MacOS)
-        system("clear");
+        // system(CLEAR_COMMAND);
+
+        // Clearing the screen using this (laughable) solution, a simple one
+        // that works for our purposes(just printing 100 newline characters).
+        // Migrating to NCurses right now would result in quite a bit of work.
+        // These solutions are listed here:
+        // http://www.cplusplus.com/forum/articles/10515/
+        std::cout << std::string(100, '\n');
         char choice{0};
         std::cout << "Player X starts!" << '\n' << '\n';
         // The game just started so there has been 0 plays.
@@ -29,7 +44,8 @@ int main() {
                 // used. This "if" statement will only run when there are no
                 // winners and every board position has been filled (Draw)
                 if (total_plays == 9) {
-                        system("clear");
+                        // system(CLEAR_COMMAND);
+                        std::cout << std::string(100, '\n');
                         printBoard();
                         std::cout << "Draw!" << '\n';
                         return 0;
@@ -64,11 +80,13 @@ int main() {
                 // After everything has been done, it is now the opponent's
                 // turn. So we change the current player.
                 togglePlayer();
-                system("clear");
+                // system(CLEAR_COMMAND);
+                std::cout << std::string(100, '\n');
         }
 
         // at the end show the board and who won.
-        system("clear");
+        // system(CLEAR_COMMAND);
+        std::cout << std::string(100, '\n');
         printBoard();
         std::cout << "Player " << winner() << " wins!" << '\n';
         return 0;
